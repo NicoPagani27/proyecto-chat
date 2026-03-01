@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/NicoPagani27/proyecto-chat/domain"
+	"proyecto-chat/domain"
 )
 
 type MemoryStorage struct {
