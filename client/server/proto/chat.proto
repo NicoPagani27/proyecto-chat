@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package chat;
+
+option go_package = "proyecto-chat/client/server/proto;chat";
+
+service ChatService {
+    rpc SendMessage(SendMessageRequest) returns (SendMessageResponse);
+    rpc ListMessages(ListMessagesRequest) returns (ListMessagesResponse);
+    rpc DeleteMessage(DeleteMessageRequest) returns (DeleteMessageResponse);
+}
+
+message SendMessageRequest {
+    string author = 1;
+    string text = 2;
+}
+
+message SendMessageResponse {
+    ChatMessage message = 1;
+}
+
+message ListMessagesRequest {}
+
+message ListMessagesResponse {
+    repeated ChatMessage messages = 1;
+}
+
+message DeleteMessageRequest {
+    string id = 1;
+}
+
+message DeleteMessageResponse {}
+
+message ChatMessage {
+    string id = 1;
+    string author = 2;
+    string text = 3;
+    string timestamp = 4;
+}
